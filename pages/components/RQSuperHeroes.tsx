@@ -8,8 +8,15 @@ const fetchUser = ()=>{
 }
 
 const RQSuperHeroes = () => {
-  const {isLoading, data, isError, error}:{isLoading:any, data:any, isError:any, error:any} = useQuery('super-hero' , fetchUser)
-  console.log(isLoading,data, isError, error?.message)
+  const {isLoading, data, isError, error, isFetching}:{isLoading:any, data:any, isError:any, error:any,isFetching:any} = useQuery('super-hero' , fetchUser,{
+    // cacheTime:5000,
+    // staleTime:30000
+    // refetchOnMount:false,
+    // refetchOnWindowFocus:true,
+    // refetchInterval:2000,
+    // refetchIntervalInBackground:true
+  })
+  console.log(isLoading,data, isError, error?.message ,isFetching)
   if(isLoading){
     return <div>Loading....</div>
   }
