@@ -1,23 +1,19 @@
-import axios from 'axios'
+
 import Link from 'next/link'
 import React from 'react'
-import { useQuery } from 'react-query'
+import { fetchSuperHero } from './CustomQueryHook'
 
-const fetchUser = ()=>{
-  return axios.get('http://localhost:4000/users')
-}
 
 const RQSuperHeroes = () => {
-  const {isLoading, data, isError, error, isFetching}:{isLoading:any, data:any, isError:any, error:any,isFetching:any} = useQuery('super-hero' , fetchUser,{
-    // cacheTime:5000,
-    // staleTime:30000
-    // refetchOnMount:false,
-    // refetchOnWindowFocus:true,
-    // refetchInterval:2000,
-    // refetchIntervalInBackground:true
-  })
+  const onSuccess = ()=>{
+    console.log('Perform side effect after fetching datar')
+  }
+  const onError = ()=>{
+    console.log('Perform side effect after encountering error')
+  }
+  const {isLoading, data, isError, error, isFetching, refetch}:{isLoading:any, data:any, isError:any, error:any,isFetching:any,refetch:any} = fetchSuperHero(onSuccess,onError)
   console.log(isLoading,data, isError, error?.message ,isFetching)
-  if(isLoading){
+  if(isLoading || isFetching){
     return <div>Loading....</div>
   }
   if(isError){
@@ -40,6 +36,7 @@ const RQSuperHeroes = () => {
           </ul>
         </nav>
         <h1>RQSuperHeroes</h1>
+        <button onClick={refetch}>Fetch hero</button>
         {data?.data.map((user:any)=>{
           return <div key={user?.id}>
             {user?.name}
