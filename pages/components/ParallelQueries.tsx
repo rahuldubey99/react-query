@@ -10,8 +10,8 @@ const fetchUser = () => {
   };
 
 const ParallelQueries = () => {
-    useQuery('super-hero',fetchUser)
-    useQuery('friends',fetchFriends)
+   const {data:hero}= useQuery('super-hero',fetchUser)
+   const {data:friends}=useQuery('friends',fetchFriends)
   return (
     <div>ParallelQueries</div>
   )
