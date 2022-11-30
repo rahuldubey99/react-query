@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import React from 'react'
 import { fetchSuperHero } from './CustomQueryHook'
+import Navbar from './Navbar'
 
 
 const RQSuperHeroes = () => {
@@ -21,25 +22,15 @@ const RQSuperHeroes = () => {
   }
     return (
       <>
-        <nav>
-          {" "}
-          <ul>
-            <li>
-              <Link href="/components/Home">Home</Link>
-            </li>
-            <li>
-              <Link href="/components/RQSuperHeroes">RQSuperHeroes</Link>
-            </li>
-            <li>
-              <Link href="/components/SuperHeroes">SuperHero</Link>
-            </li>
-          </ul>
-        </nav>
+      <Navbar/>
         <h1>RQSuperHeroes</h1>
         <button onClick={refetch}>Fetch hero</button>
         {data?.data.map((user:any)=>{
           return <div key={user?.id}>
+            <Link href={`/components/${user?.id}`}>
             {user?.name}
+            </Link>
+            
           </div>
         })}
   
