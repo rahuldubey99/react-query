@@ -1,7 +1,8 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import Link from 'next/link'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
+import styles from "../styles/Home.module.css";
+import Navbar from "./components/Navbar";
 
 export default function Home() {
   return (
@@ -12,25 +13,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <><nav>  <ul>
-          <li>
-              <Link href="/components/Home">
-                  Home
-              </Link>
-          </li>
-          <li>
-              <Link href="/components/RQSuperHeroes">
-                  RQSuperHeroes
-              </Link>
-          </li>
-          <li>
-              <Link href="/components/SuperHeroes">
-                  SuperHero
-              </Link>
-          </li>
-      </ul>
-      </nav><div>Home</div></>
-
-      </div>
-  )
+      <>
+      <Navbar/>
+        <div>Home</div>
+      </>
+    </div>
+  );
 }
