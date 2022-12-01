@@ -11,6 +11,9 @@ const Navbar = () => {
         <Link href="/components/Home">Home</Link>
       </li>
       <li>
+        <Link href="/components/DynamicParallelQueries">Dynamic Route</Link>
+      </li>
+      <li>
         <Link href="/components/ParallelQueries">Parallel Queries</Link>
       </li>
       <li>
