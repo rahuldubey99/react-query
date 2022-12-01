@@ -462,6 +462,14 @@
         "bs": "target end-to-end models"
       }
     }
+  ],
+  "channels":[
+    {"id":"Rahul",
+      "course":["react","angular","js"]
+  },
+    {"id":"Rahul dubey",
+      "course":["nextjs","angular","js"]
+  }
   ]
 
 }
